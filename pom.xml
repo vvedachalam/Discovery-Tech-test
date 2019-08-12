@@ -3,10 +3,15 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>EqualExperts</groupId>
-    <artifactId>eetest</artifactId>
+    <groupId>DiscoveryChannel</groupId>
+    <artifactId>discoverytest</artifactId>
     <version>1.0</version>
-
+    <repositories>
+    <repository>
+        <id>sonatype-ossrh</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </repository>
+    </repositories>
     <properties>
         <spring.version>4.3.7.RELEASE</spring.version>
         <cucumber.version>1.2.5</cucumber.version>
@@ -14,7 +19,22 @@
         <selenium.version>3.3.1</selenium.version>
         <rest-assured-version>2.9.0</rest-assured-version>
     </properties>
-
+    <!--<repositories>-->
+        <!--<repository> &lt;!&ndash; OSSRH: com.sikulix &ndash;&gt;-->
+            <!--<id>com-sikulix</id>-->
+            <!--<name>com-sikulix</name>-->
+            <!--<url>https://oss.sonatype.org/content/groups/public</url>-->
+            <!--<layout>default</layout>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+                <!--<updatePolicy>always</updatePolicy>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+                <!--<updatePolicy>always</updatePolicy>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+    <!--</repositories>-->
     <build>
         <defaultGoal>clean install</defaultGoal>
         <plugins>
@@ -82,7 +102,22 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.sikulix</groupId>
+            <artifactId>sikulixapi</artifactId>
+            <version>1.1.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.github.vidstige</groupId>
+                    <artifactId>jadb</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.github.vidstige</groupId>-->
+            <!--<artifactId>jadb</artifactId>-->
+            <!--<version>-v1.0-g94ebf38-23</version>-->
+        <!--</dependency>-->
         <!--Spring Dependencies-->
         <dependency>
             <groupId>org.springframework</groupId>
